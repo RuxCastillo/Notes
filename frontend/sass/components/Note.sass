@@ -1,0 +1,48 @@
+@use '../variables' as *
+
+.Note 
+    padding: 1.25rem 1.5rem
+    position: relative
+    border-right: 1px solid $neutral-200
+    grid-column: 3/4
+    grid-row: 2/3
+
+    @media (max-width: 1280px)
+        padding: 1.5rem 2rem
+
+    &__header
+        margin-bottom: 1rem
+        padding-bottom: 1rem
+        border-bottom: 1px solid $neutral-200
+
+        &--block
+            display: flex
+            align-items: center
+
+        &--iconAndText
+            display: flex
+            align-items: center
+            width: 115px
+
+            img
+                margin-right: 6px
+
+    &__title
+        margin-bottom: 1rem
+
+    &__content
+
+
+    &__footer
+        border-top: 1px solid $neutral-200
+        padding: 20px 0
+        position: absolute
+        bottom: 0
+        width: calc(100% - 3rem)
+
+        @media (max-width: 1280px)
+            display: none
+
+        button
+            margin-right: 1rem
+
