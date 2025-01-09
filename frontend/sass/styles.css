@@ -438,4 +438,11 @@ body {
   margin-right: auto;
 }
 
+.buscadorMobile {
+  padding: 0.5rem 2rem;
+}
+.buscadorMobile .buscador__block {
+  width: 100%;
+}
+
 /*# sourceMappingURL=styles.css.map */

@@ -8,6 +8,7 @@ import NewNote from './NewNote.tsx';
 import ArchiveDeleteNote from './ArchiveDeleteNote.tsx';
 import { useGlobalContext } from './store/Global context.tsx';
 import { useEffect } from 'react';
+import BuscadorMobile from './BuscadorMobile.tsx';
 
 export default function MobileComponent() {
 	const { state, dispatch } = useGlobalContext();
@@ -51,6 +52,9 @@ export default function MobileComponent() {
 	switch (state.currentView) {
 		case 'tags':
 			content = <SidebarNavigation />;
+			break;
+		case 'search':
+			content = <BuscadorMobile />;
 			break;
 		default:
 			content = <ListaDeNotas />;

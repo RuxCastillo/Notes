@@ -21,7 +21,7 @@ const reducer = (state, action) => {
 			console.log('cambiandoRenderizadoNotaActual');
 			return { ...state, notaRenderizadaActual: action.payload };
 		case 'cambioCurrentView':
-			console.log('cambiando current view');
+			console.log('cambiando current view', action.payload);
 			return { ...state, currentView: action.payload };
 		default:
 			throw new Error(`Unknown action type: ${action.type}`);

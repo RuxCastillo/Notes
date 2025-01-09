@@ -16,6 +16,18 @@ export default function BarraNavegacionInferior() {
 		dispatch({ type: 'cambioCurrentView', payload: null });
 	}
 
+	function handleClickSearch() {
+		dispatch({ type: 'cambioCurrentView', payload: 'search' });
+	}
+
+	function handleClickSettings() {
+		dispatch({ type: 'cambioCurrentView', payload: 'settings' });
+	}
+
+	function handleClickArchived() {
+		dispatch({ type: 'cambioCurrentView', payload: 'archived' });
+	}
+
 	return (
 		<nav className="barra-inferior">
 			<ul className="barra-inferior__ul">
@@ -23,11 +35,11 @@ export default function BarraNavegacionInferior() {
 					<img src={home} alt="" className="barra-inferior__ul--img" />
 					<span className="barra-inferior__ul--span text-preset-6">Home</span>
 				</div>
-				<div>
+				<div onClick={handleClickSearch}>
 					<img src={search} alt="" className="barra-inferior__ul--img" />
 					<span className="barra-inferior__ul--span text-preset-6">Search</span>
 				</div>
-				<div>
+				<div onClick={handleClickArchived}>
 					<img src={archive} alt="" className="barra-inferior__ul--img" />
 					<span className="barra-inferior__ul--span text-preset-6">
 						Archived
@@ -37,7 +49,7 @@ export default function BarraNavegacionInferior() {
 					<img src={tag} alt="" className="barra-inferior__ul--img" />
 					<span className="barra-inferior__ul--span text-preset-6">Tags</span>
 				</div>
-				<div>
+				<div onClick={handleClickSettings}>
 					<img src={settings} alt="" className="barra-inferior__ul--img" />
 					<span className="barra-inferior__ul--span text-preset-6">
 						Settings
