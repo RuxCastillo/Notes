@@ -11,8 +11,11 @@ export default function Note() {
 	const [tags, setTags] = useState([]);
 	const [content, setContent] = useState('');
 
-	const notaActual = state.notaRenderizadaActual;
-	console.log(notaActual);
+	const notaActual = {
+		title: 'Enter a title...',
+		tags: ['Add tags separated by commas (e.g. Work, Planning)'],
+		content: 'Start typing your note here...',
+	};
 
 	const formatDate = (isoString) => {
 		const date = new Date(isoString);
@@ -29,10 +32,9 @@ export default function Note() {
 			setTags(notaActual.tags || []);
 			setContent(notaActual.content || '');
 		}
-	}, [notaActual]);
+	}, []);
 
 	function handleTitleChange(e) {
-		console.log(notaActual, e.target.innerText);
 		setTitle(e.target.innerText);
 	}
 
@@ -70,6 +72,8 @@ export default function Note() {
 			type: 'cambiandoRenderizadoNotaActual',
 			payload: { ...notaActual, title, tags, content },
 		});
+		dispatch({ type: 'cambioCurrentView', payload: null });
+		dispatch({ type: 'setNotesShowNow', payload: updatedNotes2 });
 	}
 
 	console.log(notaActual.tags);

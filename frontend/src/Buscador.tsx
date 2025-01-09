@@ -39,11 +39,11 @@ export default function Buscador() {
 						onChange={(e) => setSearchTerm(e.target.value)}
 					/>
 				</label>
-				<img
+				{/* 				<img
 					src={settings}
 					alt="settings icon"
 					className="buscador__settings-icon"
-				/>
+				/> */}
 			</section>
 		</>
 	);

@@ -20,6 +20,7 @@ export default function ListaDeNotas() {
 			type: 'cambiandoRenderizadoNotaActual',
 			payload: listaDeNotas[num],
 		});
+		dispatch({ type: 'cambioCurrentView', payload: 'note' });
 	}
 
 	function handleClickNewNote() {

@@ -13,7 +13,14 @@ export default function BarraNavegacionInferior() {
 	}
 
 	function handleClickHome() {
+		const notesNoArchived = [];
+		state.notesAll.forEach((nota) => {
+			if (!nota.isArchived) {
+				notesNoArchived.push(nota);
+			}
+		});
 		dispatch({ type: 'cambioCurrentView', payload: null });
+		dispatch({ type: 'setNotesShowNow', payload: notesNoArchived });
 	}
 
 	function handleClickSearch() {
@@ -26,6 +33,13 @@ export default function BarraNavegacionInferior() {
 
 	function handleClickArchived() {
 		dispatch({ type: 'cambioCurrentView', payload: 'archived' });
+		const todasNoArchivadas = [];
+		state.notesAll.map((nota) => {
+			if (nota.isArchived) {
+				todasNoArchivadas.push(nota);
+			}
+		});
+		dispatch({ type: 'setNotesShowNow', payload: todasNoArchivadas });
 	}
 
 	return (
@@ -49,12 +63,12 @@ export default function BarraNavegacionInferior() {
 					<img src={tag} alt="" className="barra-inferior__ul--img" />
 					<span className="barra-inferior__ul--span text-preset-6">Tags</span>
 				</div>
-				<div onClick={handleClickSettings}>
+				{/* 				<div onClick={handleClickSettings}>
 					<img src={settings} alt="" className="barra-inferior__ul--img" />
 					<span className="barra-inferior__ul--span text-preset-6">
 						Settings
 					</span>
-				</div>
+				</div> */}
 			</ul>
 		</nav>
 	);

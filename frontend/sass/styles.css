@@ -441,6 +441,11 @@ body {
 .buscadorMobile {
   padding: 0.5rem 2rem;
 }
+@media (max-width: 768px) {
+  .buscadorMobile {
+    padding: 0.5rem 1rem;
+  }
+}
 .buscadorMobile .buscador__block {
   width: 100%;
 }

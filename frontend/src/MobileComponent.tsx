@@ -1,13 +1,15 @@
 import BarraSuperior from './BarraSuperior';
 import ListaDeNotas from './ListaDeNotas';
+import ListaDeNotasMobile from './ListaDeNotasMobile';
 import BarraNavegacionInferior from './BarraNavegacionInferior.tsx';
 import SidebarNavigation from './SidebarNavigation.tsx';
+import SidebarNavigationMobile from './SidebarNavigationMobile.tsx';
 import Buscador from './Buscador.tsx';
 import Note from './Note.tsx';
-import NewNote from './NewNote.tsx';
+import NewNewNote from './NewNewNote.tsx';
 import ArchiveDeleteNote from './ArchiveDeleteNote.tsx';
 import { useGlobalContext } from './store/Global context.tsx';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import BuscadorMobile from './BuscadorMobile.tsx';
 
 export default function MobileComponent() {
@@ -35,6 +37,7 @@ export default function MobileComponent() {
 					type: 'cambiandoRenderizadoNotaActual',
 					payload: result.notes[0],
 				});
+
 				console.log('result', result);
 			} catch (err) {
 				console.log('err fetch notes json', err);
@@ -42,19 +45,27 @@ export default function MobileComponent() {
 			}
 		};
 		fetchData();
-	}, []);
-
-	useEffect(() => {
-		console.log(state.feature);
-	}, [state]);
+	}, [dispatch]);
 
 	let content;
 	switch (state.currentView) {
 		case 'tags':
-			content = <SidebarNavigation />;
+			content = <SidebarNavigationMobile />;
 			break;
 		case 'search':
 			content = <BuscadorMobile />;
+			break;
+		case 'listaNotasMobile':
+			content = <ListaDeNotasMobile />;
+			break;
+		case 'archived':
+			content = <ListaDeNotasMobile />;
+			break;
+		case 'note':
+			content = <Note />;
+			break;
+		case 'newNote':
+			content = <NewNewNote />;
 			break;
 		default:
 			content = <ListaDeNotas />;
