@@ -1,4 +1,4 @@
-export default function ListaNotasIndividualMobile.tsx(props) {
+/* export default function ListaNotasIndividualMobile.tsx(props) {
 					return (
 						<div
 							className="allNotes__block"
@@ -20,4 +20,4 @@ export default function ListaNotasIndividualMobile.tsx(props) {
 						</div>
 					);
 
-}
+} */
