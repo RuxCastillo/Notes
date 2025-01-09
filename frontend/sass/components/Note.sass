@@ -31,7 +31,9 @@
         margin-bottom: 1rem
 
     &__content
-
+        white-space: pre-wrap
+        overflow: auto
+        height: 70vh
 
     &__footer
         border-top: 1px solid $neutral-200
@@ -39,6 +41,7 @@
         position: absolute
         bottom: 0
         width: calc(100% - 3rem)
+        background-color: white
 
         @media (max-width: 1280px)
             display: none

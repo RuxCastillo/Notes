@@ -3,12 +3,23 @@ import search from './assets/images/icon-search.svg';
 import archive from './assets/images/icon-archive.svg';
 import tag from './assets/images/icon-tag.svg';
 import settings from './assets/images/icon-settings.svg';
+import { useGlobalContext } from './store/Global context.tsx';
 
 export default function BarraNavegacionInferior() {
+	const { state, dispatch } = useGlobalContext();
+
+	function handleClickTags() {
+		dispatch({ type: 'cambioCurrentView', payload: 'tags' });
+	}
+
+	function handleClickHome() {
+		dispatch({ type: 'cambioCurrentView', payload: null });
+	}
+
 	return (
 		<nav className="barra-inferior">
 			<ul className="barra-inferior__ul">
-				<div>
+				<div onClick={handleClickHome}>
 					<img src={home} alt="" className="barra-inferior__ul--img" />
 					<span className="barra-inferior__ul--span text-preset-6">Home</span>
 				</div>
@@ -22,7 +33,7 @@ export default function BarraNavegacionInferior() {
 						Archived
 					</span>
 				</div>
-				<div>
+				<div onClick={handleClickTags}>
 					<img src={tag} alt="" className="barra-inferior__ul--img" />
 					<span className="barra-inferior__ul--span text-preset-6">Tags</span>
 				</div>

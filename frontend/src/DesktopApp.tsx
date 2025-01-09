@@ -9,7 +9,7 @@ import ArchiveDeleteNote from './ArchiveDeleteNote.tsx';
 import { useGlobalContext } from './store/Global context.tsx';
 import { useEffect } from 'react';
 
-export default function MobileComponent() {
+export default function DesktopApp() {
 	const { state, dispatch } = useGlobalContext();
 
 	useEffect(() => {
@@ -46,22 +46,13 @@ export default function MobileComponent() {
 	useEffect(() => {
 		console.log(state.feature);
 	}, [state]);
-
-	let content;
-	switch (state.currentView) {
-		case 'tags':
-			content = <SidebarNavigation />;
-			break;
-		default:
-			content = <ListaDeNotas />;
-			break;
-	}
-
 	return (
 		<section className="grid-container">
-			<BarraSuperior />
-			<BarraNavegacionInferior />
-			{content}
+			<Buscador />
+			<SidebarNavigation />
+			<ListaDeNotas />
+			<Note />
+			<ArchiveDeleteNote />;
 		</section>
 	);
 }
